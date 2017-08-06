@@ -24,8 +24,21 @@ architecture behave of #MM PUTS name MM#ApbIf is
 #MM LOOP type register MM#
     constant C_ADDR_#MM PUTS name %-32s MM# : integer := x"#MM PUTS offset %08x MM#";
 #MM ENDLOOP MM#
-    
+
+
+#MM LOOP type field MM#
+#MM IF DIRECTION "out" MM#
+    signal #MM PUTS name %-15s MM# : #MM PUTS VHDLTYPE MM#;
+#MM ENDIF MM#
+#MM ENDLOOP MM#
+
 begin
+
+#MM LOOP type field MM#
+#MM IF DIRECTION "out" MM#
+    o#MM PUTS name %-15s MM# := #MM PUTS name %s MM#;
+#MM ENDIF MM#
+#MM ENDLOOP MM#
 
     write_data: process (iClk, iReset)
     begin
@@ -42,7 +55,7 @@ begin
                         when C_ADDR_#MM PUTS name MM# =>
 #MM LOOP type field MM#
 #MM IF access "RW" MM#
-                            #MM PUTS DIRECTION %.1s MM##MM PUTS name %-14s  MM# <= oData#MM PUTS VHDLRANGE MM#;
+                            #MM PUTS name %-14s  MM# <= oData#MM PUTS VHDLRANGE MM#;
 #MM ENDIF MM#
 #MM ENDLOOP MM#
                             
@@ -70,6 +83,9 @@ begin
 #MM LOOP type field MM#
 #MM IF access "R" MM#
                             oData#MM PUTS VHDLRANGE %-15s MM# <= #MM PUTS DIRECTION %.1s MM##MM PUTS name MM#;
+#MM ENDIF MM#
+#MM IF access "RW" MM#
+                            oData#MM PUTS VHDLRANGE %-15s MM# <= #MM PUTS name MM#;
 #MM ENDIF MM#
 #MM ENDLOOP MM#
                             

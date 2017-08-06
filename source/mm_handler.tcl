@@ -1,6 +1,6 @@
 namespace eval nsMemoryMap {
     source "source/mm_tree.tcl"
-    source "source/mm_template_parser.tcl"
+#    source "source/mm_template_parser.tcl"
     
     #===========================================#
     # Create interface
@@ -110,4 +110,4 @@ namespace eval nsMemoryMap {
 }
 
 namespace import nsMemoryMap::mm*
-namespace import nsMemoryMap::nsTemplateParser::mmParseFile
+#namespace import nsMemoryMap::nsTemplateParser::mmParseFile
