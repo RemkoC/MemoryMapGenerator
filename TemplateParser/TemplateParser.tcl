@@ -83,5 +83,5 @@ namespace eval nsTemplateParser {
 
 namespace import nsTemplateParser::tp*
 
-set Name "EntityName"
-tpParse "template.vhd" "generated.vhd"
+#set Name "EntityName"
+#tpParse "template.vhd" "generated.vhd"
