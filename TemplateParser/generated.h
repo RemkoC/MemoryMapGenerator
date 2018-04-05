@@ -8,10 +8,10 @@ entity EntityName is
         iReset           : in    std_logic;
         iWrite           : in    std_logic;
         iRead            : in    std_logic;
-        iAddress0        : in    std_logic_vector(31 downto 0);
-        iAddress1        : in    std_logic_vector(31 downto 0);
-        iAddress2        : in    std_logic_vector(31 downto 0);
-        iAddress3        : in    std_logic_vector(31 downto 0);
+#define test0 0
+#define test1 0
+#define test2 0
+#define test3 0
         iData            : in    std_logic_vector(31 downto 0);
         oData            : in    std_logic_vector(31 downto 0)
     );
