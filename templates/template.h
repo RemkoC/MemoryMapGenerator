@@ -1,25 +1,19 @@
-/* 
- * MIT License
- * 
- * Copyright (c) 2017 Remko van Cann
- */
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-#ifndef #MM PUTS name MM#_H_
-#define #MM PUTS name MM#_H_
+entity /*TCL tpPuts $Name TCL*/ is
+    port (
+        iClk             : in    std_logic;
+        iReset           : in    std_logic;
+        iWrite           : in    std_logic;
+        iRead            : in    std_logic;
+/*TCL for {set i 0} {$i < 4} {incr i} { TCL*/#define test/*TCL tpPuts $i TCL*/ 0
+/*TCL } TCL*/        iData            : in    std_logic_vector(31 downto 0);
+        oData            : in    std_logic_vector(31 downto 0)
+    );
+end /*TCL tpPuts $Name TCL*/;
 
-// Register addresses
-#MM LOOP type register MM#
-#define C_ADDR_#MM PUTS name %-15s MM# 0x#MM PUTS offset %08x MM#
-#MM ENDLOOP MM#
-
-
-#MM LOOP type register MM#
-
-// Register #MM PUTS name "%s" MM# bitmasks
-#MM LOOP type field MM#
-#define C_MASK_#MM PUTS name "%-15s" MM# #MM PUTS MASK "0x%08X" MM#
-#MM ENDLOOP MM#
-
-#MM ENDLOOP MM#
-
-#endif // #MM PUTS name MM#_H_
+architecture behave of /*TCL tpPuts $Name TCL*/ is
+begin
+end behave;
